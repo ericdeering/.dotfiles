@@ -1,0 +1,5 @@
+alias ls="ls --color=auto"
+alias gitf="~/.dotfiles/.scripts/git_push_fast.sh"
+alias uninstall_config="~/.dotfiles/.scripts/uninstall_dotfiles.sh"
+alias update_config="~/.dotfiles/.scripts/update_dotfiles.sh"
+alias install_config="~/.dotfiles/.scripts/install.sh"
