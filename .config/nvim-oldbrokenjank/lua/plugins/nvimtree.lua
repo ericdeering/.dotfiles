@@ -2,9 +2,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      highlight = {enable = true},
-      indent = {enable = true},
-      auto_install = true,
       ensure_installed = {
         -- defaults
         "vim",
@@ -29,6 +26,9 @@ return {
 
         -- scripting
         "bash",
+
+        -- misc
+        "dockerfile",
       }
     }
   },
