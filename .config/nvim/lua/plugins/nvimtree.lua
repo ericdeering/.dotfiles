@@ -26,6 +26,9 @@ return {
 
         -- scripting
         "bash",
+
+        -- misc
+        "dockerfile",
       }
     }
   },
