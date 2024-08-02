@@ -5,6 +5,7 @@ alias update_config="~/.dotfiles/.scripts/update_dotfiles.sh"
 alias install_config="~/.dotfiles/.scripts/install.sh"
 alias docker="sudo docker"
 alias dup="docker compose up -d --force-recreate"
+alias gitc="git diff --name-only --diff-filter=U --relative"
 
 #changes color of user@host
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then

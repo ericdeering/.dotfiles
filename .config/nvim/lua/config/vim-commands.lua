@@ -11,6 +11,10 @@ vim.api.nvim_create_user_command('NvimTreeQuit', function()
     numberOfOpenBuffers = numberOfOpenBuffers + 1
   end
 
+  if not treeOpen then
+    vim.cmd('quit')
+  end
+
   if treeOpen and numberOfOpenBuffers <= 1 then
     vim.cmd('NvimTreeClose')
     vim.cmd('quit')
@@ -29,6 +33,10 @@ vim.api.nvim_create_user_command('NvimTreeSaveQuit', function()
 
   for buf in ipairs(vim.fn.getbufinfo({buflisted=1})) do
     numberOfOpenBuffers = numberOfOpenBuffers + 1
+  end
+
+  if not treeOpen then
+    vim.cmd('quit')
   end
 
   if treeOpen and numberOfOpenBuffers <= 1 then
