@@ -36,6 +36,7 @@ vim.api.nvim_create_user_command('NvimTreeSaveQuit', function()
   end
 
   if not treeOpen then
+    vim.cmd('write')
     vim.cmd('quit')
   end
 
