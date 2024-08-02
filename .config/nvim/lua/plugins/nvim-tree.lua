@@ -18,7 +18,7 @@ return {
       -- your removals and mappings go here
 
       -- delete mappings
-      --vim.keymap.del('n', '<c-k>', { buffer = bufnr })
+      vim.keymap.del('n', '<c-k>', { buffer = bufnr })
 
       -- custom mappings
         -- example: vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
