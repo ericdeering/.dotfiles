@@ -5,6 +5,6 @@ rm -rf ~/.config/nvim
 rm -rf ~/.dotfiles/
 
 cd ~
-git clone https://github.com/DukesMcSwagger/.dotfiles.git
+git clone https://github.com/ericdeering/.dotfiles.git
 
 ~/.dotfiles/.scripts/install.sh
