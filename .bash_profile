@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   source ~/.nvm/nvm.sh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  #autoload colors && colors
+  autoload colors && colors
   PS1="%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$ "
 fi
 
