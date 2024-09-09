@@ -1,5 +1,6 @@
 # Ignore plugins
 .config/tmux/plugins/*
+.config/nvim/lazy-lock.json
 
 # Don't ignore tpm
 !.config/tmux/plugins/tpm/

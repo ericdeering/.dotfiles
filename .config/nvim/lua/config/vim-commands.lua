@@ -68,11 +68,26 @@ vim.api.nvim_create_user_command('NvimTreeSaveQuit', function()
     vim.cmd('NvimTreeClose')
     vim.cmd('quit')
   else
-    vim.cmd('NvimTreeClose')
     vim.cmd('write')
+    vim.cmd('NvimTreeClose')
     vim.cmd('bd')
     vim.cmd('NvimTreeOpen')
-    vim.cmd('TmuxNavigateRight')
   end
 
 end, { desc = 'Close the current buffer, if there is only 1 buffer then close buffer, nvimtree, and nvim' })
+
+vim.api.nvim_create_user_command('NvimTreeSaveBufferDelete', function()
+  local treeOpen = require 'nvim-tree.view'.is_visible()
+  local numberOfOpenBuffers = getBuffCount()
+
+  if not treeOpen then
+    vim.cmd('write')
+    vim.cmd('NvimTreeClose')
+    vim.cmd('quit')
+  else
+    vim.cmd('write')
+    vim.cmd('NvimTreeClose')
+    vim.cmd('bd')
+    vim.cmd('NvimTreeOpen')
+  end
+end, { desc = 'Save the current buffer and close it leaving nvimtree open' })
