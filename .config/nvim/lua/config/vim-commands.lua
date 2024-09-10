@@ -72,6 +72,7 @@ vim.api.nvim_create_user_command('NvimTreeSaveQuit', function()
     vim.cmd('NvimTreeClose')
     vim.cmd('bd')
     vim.cmd('NvimTreeOpen')
+    vim.cmd('TmuxNavigateRight')
   end
 
 end, { desc = 'Close the current buffer, if there is only 1 buffer then close buffer, nvimtree, and nvim' })

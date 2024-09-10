@@ -5,7 +5,6 @@ function TMUX_SOURCE {
 }
 
 cd ~/.dotfiles/
-stow --adopt .
 TMUX_SOURCE
 ~/.config/tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
