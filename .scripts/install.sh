@@ -12,6 +12,8 @@ function LinkFile() {
       echo "Your $file has been backed up as $file.bak"
     fi
     ln -s "~/.dotfiles/$file" "~/$file"
+  else
+    echo "Symbolic link already found for $file... skipping"
   fi
 }
 
