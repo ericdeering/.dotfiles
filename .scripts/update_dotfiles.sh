@@ -1,10 +1,6 @@
 #!/bin/bash
 
-rm -rf ~/.config/tmux
-rm -rf ~/.config/nvim
-rm -rf ~/.dotfiles/
-rm -i ~/.vimrc
-rm -i ~/.bash_profile
+./uninstall_dotfiles.sh
 
 cd ~
 git clone https://github.com/ericdeering/.dotfiles.git

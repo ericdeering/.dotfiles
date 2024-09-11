@@ -7,11 +7,13 @@ function TMUX_SOURCE {
 
 function LinkFile {
   file=$1
-  echo "File: $file"
-  if [ ! -L "~/$file" ]; then
-    if [ -f "~/$file" ]; then
-      mv "~/$file" "~/$file.bak"
+  if [ ! -L ~/"$file" ]; then
+    if [ -f ~/"$file" ]; then
+      mv ~/"$file" ~/"$file".bak
       echo "Your ~/$file has been backed up as ~/$file.bak"
+    fi
+    if [ "$file" = ".gitignore" ]; then
+      continue
     fi
     ln -s ~/.dotfiles/"$file" ~/"$file"
   else
@@ -29,4 +31,4 @@ cd ~/.dotfiles/
 TMUX_SOURCE
 ~/.config/tmux/plugins/tpm/scripts/install_plugins.sh
 source ~/.bash_profile
-git remote set-url origin main https://ericdeering@github.com/ericdeering/.dotfiles.git
+git remote set-url origin https://ericdeering@github.com/ericdeering/.dotfiles.git
