@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./uninstall_dotfiles.sh
+~/.dotfiles/.scripts/uninstall_dotfiles.sh
 
 cd ~
 git clone https://github.com/ericdeering/.dotfiles.git
