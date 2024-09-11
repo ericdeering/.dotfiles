@@ -79,7 +79,6 @@ end, { desc = 'Close the current buffer, if there is only 1 buffer then close bu
 
 vim.api.nvim_create_user_command('NvimTreeSaveBufferDelete', function()
   local treeOpen = require 'nvim-tree.view'.is_visible()
-  local numberOfOpenBuffers = getBuffCount()
 
   if not treeOpen then
     vim.cmd('write')
@@ -92,3 +91,14 @@ vim.api.nvim_create_user_command('NvimTreeSaveBufferDelete', function()
     vim.cmd('NvimTreeOpen')
   end
 end, { desc = 'Save the current buffer and close it leaving nvimtree open' })
+
+vim.api.nvim_create_user_command('InsertIndent', function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  pos[2] = pos[2] + 1
+  local line = vim.api.nvim_get_current_line()
+  local newLine = "\t" .. line
+
+  -- print("pos[1] = " .. pos[1] .. "\npos[2] = " .. pos[2])
+  vim.api.nvim_set_current_line(newLine)
+  vim.api.nvim_win_set_cursor(0, pos)
+end, { desc = 'Insert a tab at the beginning of the line' })
