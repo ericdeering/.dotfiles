@@ -45,12 +45,12 @@ function LinkFile {
   ln -s "$sourcepath" "$installpath"
 }
 
-find ~/.dotfiles -type f -depth 1 |
+find ~/.dotfiles -maxdepth 1 -type f |
 	while IFS= read -r line; do
 		LinkFile "$line"
 	done
 
-find ~/.dotfiles/.config -type d -depth 1 |
+find ~/.dotfiles/.config -maxdepth 1 -type d |
   while IFS= read -r line; do
     LinkFile "$line"
   done
