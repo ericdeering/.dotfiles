@@ -34,14 +34,14 @@ function LinkFile {
 
   if [ -f "$installpath" ] || [ -d "$installpath" ]; then
     if [ -L ~/.config ]; then
-      continue
+      return
     fi
     mv "$installpath" "$installpath".bak
     echo "Your $installpath has been backed up as $installpath.bak"
   fi
 
   if [ "$file" = ".gitignore" ]; then
-    continue
+    return
   fi
 
   ln -s "$sourcepath" "$installpath"
