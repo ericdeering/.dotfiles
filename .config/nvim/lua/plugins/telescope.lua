@@ -1,7 +1,10 @@
 return {
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  { 'nvim-telescope/telescope-ui-select.nvim' },
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     --   or                              , branch = '0.1.x',
+
     dependencies = {
       'nvim-lua/plenary.nvim',
       'BurntSushi/ripgrep',
@@ -10,25 +13,28 @@ return {
     },
 
     config = function()
-      local builtin = require("telescope.builtin")
-      local map = vim.keymap.set
-      map('n', '<leader>ff', builtin.find_files, {})
-      map('n', '<leader>fg', builtin.live_grep, {})
-    end
-  },
-  {
-    'nvim-telescope/telescope-ui-select.nvim',
-    'nvim-telescope/telescope-fzf-native.nvim',
-    config = function()
+      require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("fzf")
       require("telescope").setup ({
         pickers = {
           find_files = {
-            hidden = true
+            find_command = {
+              'rg',
+              '--files',
+              '--iglob',
+              '!.git',
+              '--hidden',
+              '--follow',
+            }
           },
           live_grep = {
-            additional_args = function()
-              return { "--hidden" } --"rg", "--hidden", "--glob", '!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}', }
-            end
+            additional_args = {
+              '--hidden',
+              'rg',
+              '--hidden',
+	            '--glob',
+	            '!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}',
+	          }
           },
         },
         extensions = {
@@ -39,8 +45,8 @@ return {
           }
         }
       })
-      require("telescope").load_extension("ui-select")
-      require("telescope").load_extension("fzf")
+      vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>', {})
+      vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', {})
     end
   },
 }
