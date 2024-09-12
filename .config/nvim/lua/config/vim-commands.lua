@@ -4,7 +4,7 @@ end
 
 local function getBuffCount()
   local count = 0
-  for _ in ipairs(vim.fn.getbufinfo({buflisted=1})) do
+	for _ in ipairs(vim.fn.getbufinfo({buflisted=1})) do
     count = count + 1
   end
   return count
@@ -16,7 +16,7 @@ vim.api.nvim_create_user_command('CloseBuffer', function()
 end, { desc = 'Close buffer and NvimTree if open' })
 
 vim.api.nvim_create_user_command('GetCurrentBufferName', function()
-  local name = getBuffName()
+	local name = getBuffName()
   print(name)
 end, { desc = 'Return name of currently active buffer' })
 
@@ -98,7 +98,22 @@ vim.api.nvim_create_user_command('InsertIndent', function()
   local line = vim.api.nvim_get_current_line()
   local newLine = "\t" .. line
 
-  -- print("pos[1] = " .. pos[1] .. "\npos[2] = " .. pos[2])
   vim.api.nvim_set_current_line(newLine)
   vim.api.nvim_win_set_cursor(0, pos)
 end, { desc = 'Insert a tab at the beginning of the line' })
+
+vim.api.nvim_create_user_command('RemoveIndent', function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  pos[2] = pos[2] - 2
+  if pos[2] < 0 then pos[2] = 0 end
+  local line = vim.api.nvim_get_current_line()
+  local newLine
+  if string.sub(line,1,1) == "\t" then
+    newLine = string.sub(line,2,string.len(line))
+  elseif string.sub(line,1,2) == "  " then
+    newLine = string.sub(line,3,string.len(line))
+  end
+  if newLine == nil then return end
+  vim.api.nvim_set_current_line(newLine)
+  vim.api.nvim_win_set_cursor(0, pos)
+end, { desc = 'Remove a tab from the beginning of the line' })
