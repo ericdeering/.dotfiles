@@ -40,7 +40,7 @@ function LinkFile {
     echo "Your $installpath has been backed up as $installpath.bak"
   fi
 
-  if [ "$file" = ".gitignore" ]; then
+  if [ "$file" = ".gitignore" ] || [ "$file" = ".config" ]; then
     return
   fi
 
