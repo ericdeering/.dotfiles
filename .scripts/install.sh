@@ -47,7 +47,7 @@ function LinkFile {
   ln -s "$sourcepath" "$installpath"
 }
 
-if [ ! -d "~/.config" ]; then
+if [ ! -d ~/.config ] && [ ! -L ~/.config ]; then
   mkdir ~/.config
 fi
 
