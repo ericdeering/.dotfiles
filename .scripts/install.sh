@@ -33,6 +33,9 @@ function LinkFile {
   fi
 
   if [ -f "$installpath" ] || [ -d "$installpath" ]; then
+    if [ -L ~/.config ]; then
+      continue
+    fi
     mv "$installpath" "$installpath".bak
     echo "Your $installpath has been backed up as $installpath.bak"
   fi
