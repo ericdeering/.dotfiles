@@ -18,6 +18,7 @@ return {
   },
   {
     'nvim-telescope/telescope-ui-select.nvim',
+    'nvim-telescope/telescope-fzf-native.nvim',
     config = function()
       require("telescope").setup ({
         pickers = {
@@ -26,7 +27,7 @@ return {
           },
           live_grep = {
             additional_args = function()
-              return { "--hidden" }
+              return { "--hidden" } --"rg", "--hidden", "--glob", '!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}', }
             end
           },
         },
