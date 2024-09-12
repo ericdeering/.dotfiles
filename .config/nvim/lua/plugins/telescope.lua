@@ -1,6 +1,7 @@
 return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "nvim-telescope/telescope-ui-select.nvim" },
+  { "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0", },
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
@@ -46,9 +47,11 @@ return {
 
 			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {})
 			vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {})
+      vim.keymap.set("n", "<leader>fG", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", {})
 
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
+      require("telescope").load_extension("live_grep_args")
 		end,
 	},
 }
