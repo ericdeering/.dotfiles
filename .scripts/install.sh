@@ -4,7 +4,7 @@ testing=false
 
 function TMUX_SOURCE {
   tmux new-session -d -s "temp" ~/.dotfiles/.scripts/source_tmux.sh
-  tmux kill-server
+  tmux kill-session
 }
 
 function LinkFile {
