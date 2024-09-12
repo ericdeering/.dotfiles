@@ -33,7 +33,7 @@ function LinkFile {
   fi
 
   if [ -f "$installpath" ] || [ -d "$installpath" ]; then
-    if [ -L ~/.config ]; then
+    if [ -L ~/.config ] || [ -d ~/.config ]; then
       return
     fi
     mv "$installpath" "$installpath".bak
