@@ -25,7 +25,6 @@ function LinkFile {
     echo
 
     return
-
   fi
 
   if [ -L "$installpath" ]; then
@@ -44,6 +43,10 @@ function LinkFile {
 
   ln -s "$sourcepath" "$installpath"
 }
+
+if [ ! -d "~/.config" ]; then
+  mkdir ~/.config
+fi
 
 find ~/.dotfiles -maxdepth 1 -type f |
 	while IFS= read -r line; do
