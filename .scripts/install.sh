@@ -69,4 +69,4 @@ cd ~/.dotfiles/
 TMUX_SOURCE
 ~/.config/tmux/plugins/tpm/scripts/install_plugins.sh
 source ~/.bash_profile
-git remote set-url origin https://ericdeering@github.com/ericdeering/.dotfiles.git
+git remote set-url origin git@github.com:ericdeering/.dotfiles.git

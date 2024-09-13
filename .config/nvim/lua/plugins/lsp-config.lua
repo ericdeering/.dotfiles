@@ -16,14 +16,16 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
-      })
+
+      lspconfig.ast_grep.setup({ capabilities = capabilities })
+      lspconfig.apex_ls.setup{ capabilities = capabilities }
+      lspconfig.arduino_language_server.setup{ capabilities = capabilities }
+      lspconfig.dockerls.setup{ capabilities = capabilities }
+      lspconfig.docker_compose_language_service.setup{ capabilities = capabilities }
+      lspconfig.spectral.setup{ capabilities = capabilities }
+      lspconfig.lua_ls.setup{ capabilities = capabilities }
+      lspconfig.bashls.setup{ capabilities = capabilities }
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
@@ -31,4 +33,3 @@ return {
     end
   },
 }
-
