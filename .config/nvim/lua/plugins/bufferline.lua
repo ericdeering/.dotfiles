@@ -3,9 +3,6 @@ return {
   version = "*",
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
-    vim.cmd("nnoremap <silent><tab> :BufferLineCycleNext<CR>")
-    vim.cmd("nnoremap <silent><s-tab> :BufferLineCyclePrev<CR>")
-
     require("bufferline").setup{
       options = {
         separator_style = "slant",
@@ -19,5 +16,7 @@ return {
         }
       }
     }
+    vim.keymap.set({"n","v","o"}, "<tab>", "BufferLineCycleNext<cr>", {noremap = true, desc = 'move to open buffer tab to the right of the currently opened buffer tab'})
+    vim.keymap.set({"n","v","o"}, "<s-tab>", "BufferLineCyclePrev<cr>", {noremap = true, desc = 'move to open buffer tab to the left of the currently opened buffer tab'})
   end,
 }
