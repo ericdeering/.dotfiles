@@ -28,9 +28,9 @@ return {
       lspconfig.bashls.setup{ capabilities = capabilities }
       lspconfig.pylsp.setup{ capabilities = capabilities }
 
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = {'LSP: Show Definition in snippet'}})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = {'LSP: Jump to Definition'}})
-      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {{desc = 'LSP: Show code actions'}})
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'LSP: Show Definition in snippet'})
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = 'LSP: Jump to Definition'})
+      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {desc = 'LSP: Show code actions'})
     end
   },
 }
