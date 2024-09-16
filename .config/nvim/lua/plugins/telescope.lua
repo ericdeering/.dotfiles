@@ -48,6 +48,8 @@ return {
 			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", {})
 			vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", {})
       vim.keymap.set("n", "<leader>fG", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", {})
+			vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = 'Search help tags with telescope'})
+			vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", { desc = 'Search keybinds with telescope'})
 
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
