@@ -26,7 +26,7 @@ return {
       --vim.keymap.set('n', '<c-i>', api.node.show_info_popup, opts('Info'))
 
       -- override mappings
-      vim.keymap.set('n', '<C-u>', api.node.show_info_popup, opts('Info'))
+      vim.keymap.set('n', '<c-u>', api.node.show_info_popup, opts('Info'))
     end
 
     require("nvim-tree").setup {
