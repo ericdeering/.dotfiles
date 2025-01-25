@@ -10,8 +10,8 @@ alias gitc="git diff --name-only --diff-filter=U --relative"
 # changes color of user@host
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  source ~/.nvm/nvm.sh
+  # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  # source ~/.nvm/nvm.sh
 # elif [[ "$OSTYPE" == "darwin"* ]]; then
   # autoload colors && colors
   # PS1="%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$ "
@@ -31,6 +31,13 @@ function SetMouseSense() {
   else
     ~/.dotfiles/.scripts/set_mouse_sensitivity.sh "$1"
   fi
+}
+
+# send ssh key passing <host:address> as the first arguement and <identity file> as the second arguement. (defaults to ~/.ssh/id_25519.pub)
+function SendSSH() {
+  identity_file=${2:-~/.ssh/id_25519.pub}
+  echo "Sending identity:$identity_file to $1..."
+  cat $identity_file | ssh "$1" 'umask 0077; mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'
 }
 
 # import anaconda into $PATH
