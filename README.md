@@ -5,3 +5,5 @@ dependencies:
     fzf
     cmake
     make
+    ripgrep
+    fd-find
