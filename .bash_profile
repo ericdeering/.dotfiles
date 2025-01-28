@@ -9,10 +9,17 @@ alias gitc="git diff --name-only --diff-filter=U --relative"
 
 # changes color of user@host
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+
+  # only run on Linux
+
   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  export EDITOR=nvim
   # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   # source ~/.nvm/nvm.sh
 # elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+  # only run on MacOS
+
   # autoload colors && colors
   # PS1="%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$ "
 fi
