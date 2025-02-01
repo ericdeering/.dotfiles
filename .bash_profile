@@ -14,8 +14,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   export EDITOR=nvim
-  # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  # source ~/.nvm/nvm.sh
+#  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+#  source ~/.nvm/nvm.sh
 # elif [[ "$OSTYPE" == "darwin"* ]]; then
 
   # only run on MacOS
