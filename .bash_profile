@@ -16,10 +16,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export EDITOR=nvim
 #  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 #  source ~/.nvm/nvm.sh
-# elif [[ "$OSTYPE" == "darwin"* ]]; then
+elif [[ "$OSTYPE" == "darwin"* ]]; then
 
   # only run on MacOS
-
+  function java8 {
+    executable=$1
+    shift
+    command /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/bin/$executable $@ 
+  }
   # autoload colors && colors
   # PS1="%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$ "
 fi
