@@ -1,38 +1,44 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      highlight = {enable = true},
-      indent = {enable = true},
-      auto_install = true,
-      ensure_installed = {
-        -- defaults
-        "vim",
-        "lua",
-        "vimdoc",
+    build = ":TSUpdate",
+    config = function()
+      local configs = require("nvim-treesitter.configs")
 
-        -- web dev 
-        "html",
-        "css",
-        "javascript",
-        "php",
+      configs.setup({
+        highlight = {enable = true},
+        indent = {enable = true},
+        auto_install = true,
+        ensure_installed = {
+          -- defaults
+          "vim",
+          "lua",
+          "vimdoc",
 
-        -- high level
-        "java",
-        "python",
-        "c_sharp",
-        "lua",
+          -- web dev 
+          "html",
+          "css",
+          "javascript",
+          "typescript",
+          "php",
 
-        -- low level
-        "c",
-        "arduino",
+          -- high level
+          "java",
+          "python",
+          "c_sharp",
+          "lua",
 
-        -- scripting
-        "bash",
+          -- low level
+          "c",
+          "arduino",
 
-        -- misc
-        "Dockerfile"
-      }
-    }
+          -- scripting
+          "bash",
+
+          -- misc
+          "dockerfile",
+        }
+      })
+    end
   },
 }
