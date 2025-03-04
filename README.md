@@ -7,3 +7,4 @@ dependencies:
     make
     ripgrep
     fd-find
+    llvm

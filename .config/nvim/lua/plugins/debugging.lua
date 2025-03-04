@@ -12,6 +12,32 @@ return {
 	config = function()
 		local dap, dapui = require("dap"), require("dapui")
 
+    dap.adapters.cppdbg = {
+      id = 'cppdbg',
+      type = 'executable',
+      command = 'OpenDebugAD7',
+    }
+
+    dap.adapters.lldb = {
+      name = 'lldb',
+      type = 'executable',
+      command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
+    }
+
+    dap.configurations.cpp = {
+      {
+        name = "Launch",
+        type = "lldb",
+        request = "launch",
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = true,
+        args = {},
+      },
+    }
+
 		require("dap-go").setup()
 		require("dapui").setup()
 

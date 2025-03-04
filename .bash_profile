@@ -26,6 +26,14 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   }
   # autoload colors && colors
   # PS1="%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$ "
+  #
+
+  # import anaconda into $PATH
+  PATH=/opt/homebrew/anaconda3/bin:"$PATH"
+  # import vscode-cpptools debugger to $PATH
+  PATH=/Users/eric/debuggers/cpptools-macOS-arm64/extension/debugAdapters/bin:"$PATH"
+  # import lldb into $PATH
+  PATH=/opt/homebrew/opt/llvm/bin:"$PATH"
 fi
 
 # stuff for nvm
@@ -51,5 +59,3 @@ function SendSSH() {
   cat $identity_file | ssh "$1" 'umask 0077; mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'
 }
 
-# import anaconda into $PATH
-PATH=/opt/homebrew/anaconda3/bin:"$PATH"
