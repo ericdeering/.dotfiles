@@ -13,4 +13,4 @@ vim.cmd("cnoremap wq NvimTreeSaveBufferDelete")
 vim.cmd("cnoremap wqq NvimTreeSaveQuit")
 vim.cmd("cnoremap wqa wqa")
 
-vim.wo.relativenumber = true
+vim.wo.number = true
