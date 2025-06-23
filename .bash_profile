@@ -1,4 +1,7 @@
-alias ls="ls --color=auto"
+#alias ls="ls --color=auto"
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+alias ls='ls -GFh'
 alias gitf="~/.dotfiles/.scripts/git_push_fast.sh"
 alias uninstall_config="~/.dotfiles/.scripts/uninstall_dotfiles.sh"
 alias update_config="~/.dotfiles/.scripts/update_dotfiles.sh"

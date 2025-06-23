@@ -1,3 +1,1 @@
 syntax on
-
-set relativenumber

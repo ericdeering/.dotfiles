@@ -3,6 +3,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set clipboard+=unnamedplus")
+vim.cmd("set mousescroll=ver:1,hor:2")
 
 vim.cmd("cnoremap Q q")
 vim.cmd("cnoremap q! q!")
