@@ -10,25 +10,14 @@ return {
     },
   },
   {
-    "nvim-java/nvim-java",
-    config = function()
-      require("java").setup()
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       require("mason").setup();
-      require("mason-lspconfig").setup_handlers {
-        function(server_name)
-          if (server_name ~= "jdtls") then
-           require("lspconfig")[server_name].setup{ capabilities = capabilities }
-         end
-        end
+      require("mason-lspconfig").setup {
+
       }
 
-      require("lspconfig")["jdtls"].setup{ capabilities = capabilities }
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'LSP: Show Definition in snippet'})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {desc = 'LSP: Jump to Definition'})
