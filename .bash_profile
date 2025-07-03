@@ -57,7 +57,7 @@ function SetMouseSense() {
 
 # send ssh key passing <host:address> as the first arguement and <identity file> as the second arguement. (defaults to ~/.ssh/id_25519.pub)
 function SendSSH() {
-  identity_file=${2:-~/.ssh/id_25519.pub}
+  identity_file=${2:-~/.ssh/id_ed25519.pub}
   echo "Sending identity:$identity_file to $1..."
   cat $identity_file | ssh "$1" 'umask 0077; mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'
 }
