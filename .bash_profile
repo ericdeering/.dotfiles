@@ -31,6 +31,12 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # PS1="%{$fg[green]%}%n@%{$fg[green]%}%m%{$reset_color%}:%{$fg[blue]%}%~%{$reset_color%}$ "
   #
 
+  function jhome {
+	  export JAVA_HOME=$(/usr/libexec/java_home -v "$1")
+	  echo "JAVA_HOME set to: $JAVA_HOME"
+	  java -version
+	}
+
   # import anaconda into $PATH
   PATH=/opt/homebrew/anaconda3/bin:"$PATH"
   # import vscode-cpptools debugger to $PATH
