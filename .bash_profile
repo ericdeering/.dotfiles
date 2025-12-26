@@ -14,7 +14,8 @@ alias gitc="git diff --name-only --diff-filter=U --relative"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
   # only run on Linux
-
+  
+  alias nvim="~/nvim-linux-x86_64/bin/nvim"
   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
   export EDITOR=nvim
 #  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
